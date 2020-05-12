@@ -37,8 +37,15 @@ require_once ("config.php");
 
 //aula 66
 //update user
+//    $user = new Usuario();
+//    $user->loadById(6);
+//    $user->update("update1","!@#$%");
+//    echo $user;
+
+//aula 67
+//delete user
     $user = new Usuario();
-    $user->loadById(6);
-    $user->update("update1","!@#$%");
+    $user->loadById(7);
+    $user->delete();
     echo $user;
 ?>

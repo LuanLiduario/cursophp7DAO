@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class Usuario
+ */
 class Usuario{
     /**
      * @var
@@ -74,6 +78,7 @@ class Usuario{
 
     /**
      * @param $id
+     * @throws Exception
      */
     public function loadById($id)
     {
@@ -163,6 +168,10 @@ class Usuario{
         }
     }
 
+    /**
+     * @param $login
+     * @param $password
+     */
     public function update($login,$password)
     {
         $this->setDeslogin($login);
@@ -173,6 +182,21 @@ class Usuario{
             ':PASSWORD'=>$this->getDessenha(),
             ':ID'=>$this->getId()
         ));
+    }
+
+    /**
+     *
+     */
+    public function delete()
+    {
+        $sql = new Sql();
+        $sql->query("DELETE FROM tab_usuarios WHERE  id = :ID", array(
+           ":ID"=>$this->getId()
+        ));
+        $this->setId(0);
+        $this->setDessenha("");
+        $this->setDeslogin("");
+       // $this->setDtcadastro(null);
     }
 
     /**
