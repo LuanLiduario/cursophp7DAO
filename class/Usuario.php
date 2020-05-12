@@ -163,10 +163,16 @@ class Usuario{
         }
     }
 
-    public function update()
+    public function update($login,$password)
     {
+        $this->setDeslogin($login);
+        $this->setDessenha($password);
         $sql = new Sql();
-        $sql->query("")
+        $sql->query("UPDATE tab_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE  id = :ID", array(
+            ':LOGIN'=>$this->getDeslogin(),
+            ':PASSWORD'=>$this->getDessenha(),
+            ':ID'=>$this->getId()
+        ));
     }
 
     /**

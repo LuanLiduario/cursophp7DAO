@@ -28,10 +28,17 @@ require_once ("config.php");
 
 //aula 65
 //inserir novo user
-//$user = new Usuario();
-//$user->setDeslogin('aluno');
-//$user->setDessenha('@luno');
-$user = new Usuario("testeconstruct","123");
-$user->insert();
-echo $user;
+//  $user = new Usuario();
+//  $user->setDeslogin('aluno');
+//  $user->setDessenha('@luno');
+//  $user = new Usuario("testeconstruct","123");
+//  $user->insert();
+//  echo $user;
+
+//aula 66
+//update user
+    $user = new Usuario();
+    $user->loadById(6);
+    $user->update("update1","!@#$%");
+    echo $user;
 ?>
